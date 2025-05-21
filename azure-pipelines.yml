@@ -1,14 +1,10 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
-  demands: MyAgent
+  name: 'Default'  # Replace with your actual self-hosted agent pool name
+  demands:
+    - Agent.Name -equals MyAgent  # Replace with your specific agent's name
 
 steps:
 - script: echo Hello, world!
